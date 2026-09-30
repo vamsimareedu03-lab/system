@@ -1,0 +1,68 @@
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@500;600;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 240 28% 97%;
+    --foreground: 230 28% 12%;
+    --card: 0 0% 100%;
+    --card-foreground: 230 28% 12%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 230 28% 12%;
+    --primary: 271 81% 56%;
+    --primary-foreground: 0 0% 100%;
+    --secondary: 222 35% 93%;
+    --secondary-foreground: 230 28% 12%;
+    --muted: 230 20% 93%;
+    --muted-foreground: 230 12% 43%;
+    --accent: 333 86% 64%;
+    --accent-foreground: 0 0% 100%;
+    --destructive: 0 75% 55%;
+    --destructive-foreground: 0 0% 100%;
+    --border: 230 18% 88%;
+    --input: 230 18% 88%;
+    --ring: 271 81% 56%;
+    --radius: 1rem;
+    --sidebar-background: 240 28% 97%;
+    --sidebar-foreground: 230 28% 12%;
+    --sidebar-primary: 271 81% 56%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 333 86% 94%;
+    --sidebar-accent-foreground: 230 28% 12%;
+    --sidebar-border: 230 18% 88%;
+    --sidebar-ring: 271 81% 56%;
+  }
+}
+
+@layer base {
+  * { @apply border-border; }
+  html { scroll-behavior: smooth; }
+  body { @apply bg-background text-foreground; font-family: 'DM Sans', sans-serif; margin: 0; }
+  h1,h2,h3,h4,h5,h6 { font-family: 'Playfair Display', serif; }
+}
+
+@layer components {
+  .hero-text { @apply font-heading text-5xl md:text-7xl font-bold leading-[.95]; }
+  .section-heading { @apply font-heading text-3xl md:text-5xl font-semibold; }
+  .glass { @apply border border-white/20 bg-white/10 backdrop-blur-xl; }
+  .gradient-text { @apply bg-gradient-to-r from-fuchsia-500 via-violet-600 to-cyan-500 bg-clip-text text-transparent; }
+  .category-card { @apply relative overflow-hidden rounded-3xl cursor-pointer; transition: transform .35s ease, box-shadow .35s ease; }
+  .category-card:hover { transform: translateY(-8px); box-shadow: 0 25px 60px rgba(58,38,120,.2); }
+  .btn-ripple { @apply transition-all duration-300 hover:-translate-y-0.5 active:translate-y-0; }
+  .elegant-shadow { box-shadow: 0 20px 60px rgba(31,22,72,.12); }
+}
+
+@layer utilities {
+  .text-gradient { @apply bg-gradient-to-r from-fuchsia-500 via-violet-600 to-cyan-500 bg-clip-text text-transparent; }
+  .fade-in-up { animation: fadeInUp .65s ease-out both; }
+  .fade-in-up-delay-1 { animation-delay: .12s; }
+  .fade-in-up-delay-2 { animation-delay: .24s; }
+  .fade-in-up-delay-3 { animation-delay: .36s; }
+}
+
+@keyframes fadeInUp { from { opacity:0; transform:translateY(22px); } to { opacity:1; transform:translateY(0); } }
+
+@media (prefers-reduced-motion: reduce) { * { animation-duration:.01ms!important; transition-duration:.01ms!important; scroll-behavior:auto!important; } }

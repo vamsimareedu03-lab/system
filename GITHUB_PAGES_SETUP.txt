@@ -1,0 +1,25 @@
+GITHUB PAGES SETUP
+==================
+
+IMPORTANT: Extract/copy the CONTENTS of this folder into the ROOT of the GitHub repository.
+Do NOT create system/fashion-vton-main/.github. The correct path is:
+  system/.github/workflows/deploy-pages.yml
+
+In GitHub:
+  Settings -> Pages -> Build and deployment -> Source -> GitHub Actions
+
+Then push to main. The workflow will build website/ with npm ci and npm run build,
+then deploy website/dist to GitHub Pages.
+
+Expected project layout:
+  .github/workflows/deploy-pages.yml
+  website/package.json
+  website/package-lock.json
+  website/vite.config.ts
+  website/src/...
+  backend/...
+  SCW-VTON/...
+  openpose/...
+
+The Python/Flask VTON backend is NOT executed by GitHub Pages. This workflow deploys
+the React/Vite frontend only.
